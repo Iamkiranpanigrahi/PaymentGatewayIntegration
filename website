@@ -1,0 +1,123 @@
+ //kiran panigrahi
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Donate Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #aeefeb;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .button {
+      display: block;
+      width: 200px;
+      margin: 0 auto;
+      padding: 10px 20px;
+      font-size: 18px;
+      text-align: center;
+      background-color: #007bff;
+      color: #1f1c1c;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to Our Donation Page</h1>
+    <button class="button" onclick="redirectToPayment()">Donate Now</button>
+  </div>
+
+  <script>
+    function redirectToPayment() {
+      // Redirect the user to the payment page
+      window.location.href = "payment.html";
+    }
+  </script>
+</body>
+</html>
+
+<!-- payment.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Page</title>
+  <style>
+    /* Add your CSS styles here */
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Select Donation Amount and Payment Method</h1>
+    <form id="paymentForm" onsubmit="processPayment(event)">
+      <label for="amount">Select Amount:</label>
+      <select id="amount">
+        <option value="10">$10</option>
+        <option value="20">$20</option>
+        <option value="50">$50</option>
+        <option value="100">$100</option>
+      </select><br>
+      <label for="paymentType">Select Payment Type:</label>
+      <select id="paymentType">
+        <option value="creditCard">Credit Card</option>
+        <option value="debit card">Debit Card</option>
+        <option value="paypal">Paypal</option>
+        <option value="UPI">upi</option>
+        <option value="others">Other</option>
+        <!-- Add more payment options as needed -->
+      </select><br>
+      <button type="submit">Proceed to Payment</button>
+    </form>
+  </div>
+
+  <script>
+    function processPayment(event) {
+      event.preventDefault();
+      
+      var amount = document.getElementById("amount").value;
+      var paymentType = document.getElementById("paymentType").value;
+
+      // Validate user input
+      if (amount === "" || paymentType === "") {
+        alert("Please select a valid amount and payment type.");
+        return;
+      }
+
+      // Simulate payment processing (replace with actual payment gateway integration code)
+      alert("Processing payment of $" + amount + " via " + paymentType);
+
+      // Generate invoice and send email
+      var invoice = "Invoice Details:\nAmount: $" + amount;
+      alert("Invoice:\n" + invoice);
+
+      // Redirect user back to homepage after payment
+      window.location.href = "index.html"; // Replace with actual homepage URL
+    }
+  </script>
+</body>
+</html>
